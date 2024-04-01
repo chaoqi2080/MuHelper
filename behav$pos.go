@@ -9,13 +9,13 @@ var recyclePos = [][]int{
 }
 
 // 小地图的坐标。
-var smallMapPos = []int{58, 100}
+var smallMapPos = []int{891, 141}
 
 // 靠左的空白点对应的坐标。
-var leftBlankPos = []int{312, 325}
+var leftBlankPos = []int{259, 302}
 
 // 自动按钮位置
-var autoPos = []int{1, 1}
+var autoPos = []int{930, 303}
 
 // 黄金之间移动的时间(秒)
 var moveTakeTime = 16

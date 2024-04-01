@@ -11,9 +11,9 @@ func main() {
 	robotgo.Sleep(2)
 
 	//校准地图点位置
-	getGamePos()
+	//getGamePos()
 	//自动打怪。
-	//autoKillMonster()
+	autoKillMonster()
 }
 
 func getGamePos() {
@@ -29,15 +29,16 @@ func autoKillMonster() {
 	for {
 		i++
 
+		//if i >= 1 {
+		autoRecycle()
+		i = 0
+		//}
+
 		//bingShuang1Golden()
 		//killAnNingGolden3()
 
 		killLost4Map()
 
-		if i >= 1 {
-			autoRecycle()
-			i = 0
-		}
 	}
 }
 

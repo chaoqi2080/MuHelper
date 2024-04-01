@@ -19,7 +19,7 @@ const (
 )
 
 func autoRecycle() {
-	if len(recyclePos) != 5 {
+	if len(recyclePos) != 4 {
 		log.Error("背包坐标不等于 5 个，有问题。")
 		return
 	}

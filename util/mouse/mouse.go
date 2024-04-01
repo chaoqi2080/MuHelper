@@ -24,7 +24,7 @@ func Move2Position(pos []int) {
 		return
 	}
 
-	robotgo.MoveMouseSmooth(pos[0], pos[1], 1.0, 1.0)
+	robotgo.MoveMouseSmooth(pos[0], pos[1], 1.0, 5.0)
 }
 
 func SignalLeftClick() {

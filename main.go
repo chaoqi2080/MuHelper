@@ -15,3 +15,11 @@ func main() {
 	//自动打怪。
 	DoAutoKillMonster()
 }
+
+func GetFramePos() {
+	for {
+		x, y := robotgo.GetMousePos()
+		log.Info("x = %v, y = %v", x, y)
+		robotgo.Sleep(1)
+	}
+}

@@ -62,7 +62,7 @@ func autoRecycle() {
 
 	//点关闭按钮
 	log.Info("5--点关闭按钮")
-	mouse.Move2Position(leftBlankPos)
+	mouse.Move2Position(globalLeftBlankPos)
 	//robotgo.Sleep(1)
 	mouse.DoubleLeftClick()
 }

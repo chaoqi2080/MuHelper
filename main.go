@@ -18,7 +18,7 @@ func main() {
 
 func GetFramePos() {
 	for {
-		x, y := robotgo.GetMousePos()
+		x, y := robotgo.Location()
 		log.Info("x = %v, y = %v", x, y)
 		robotgo.Sleep(1)
 	}

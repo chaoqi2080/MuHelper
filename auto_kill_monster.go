@@ -7,15 +7,16 @@ import (
 )
 
 // 小地图的坐标。
-var globalSmallMapPos = []int{4211, -427}
+var globalSmallMapPos = []int{964, 138}
 
 // 靠左的空白点对应的坐标。
-var globalLeftBlankPos = []int{3565, -261}
+var globalLeftBlankPos = []int{310, 243}
 
 // 自动按钮位置
-var globalAutoButtonPos = []int{4270, -254}
+var globalAutoButtonPos = []int{1013, 305}
 
 func DoAutoKillMonster() {
+	robotgo.Sleep(3)
 	i := 0
 	for {
 		i++
@@ -54,7 +55,7 @@ func clickGoldenMonsterPosInBigMap(goldenMonsterPos []int, moveTimeBetweenMonste
 	mouse.DoubleLeftClick()
 	//等待玩家移动到对应的位置
 	log.Info(
-		"玩家需要移动到 = [%v,%v], 耗时 = %v",
+		"玩家需要移动到 = [%v,%v], 耗时 = %v 秒",
 		goldenMonsterPos[0], goldenMonsterPos[1], moveTimeBetweenMonster,
 	)
 	robotgo.Sleep(moveTimeBetweenMonster)

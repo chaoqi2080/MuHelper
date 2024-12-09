@@ -12,14 +12,14 @@ func Move2Position(pos []int) {
 		return
 	}
 
-	robotgo.MoveMouseSmooth(pos[0], pos[1], 1.0, 5.0)
+	robotgo.MoveSmooth(pos[0], pos[1], 1.0, 1.0)
 }
 
 func SignalLeftClick() {
-	robotgo.MouseClick("left", false)
+	robotgo.Click()
 }
 
 func DoubleLeftClick() {
-	robotgo.MouseClick("left", false)
-	robotgo.MouseClick("left", false)
+	robotgo.Click()
+	robotgo.Click()
 }

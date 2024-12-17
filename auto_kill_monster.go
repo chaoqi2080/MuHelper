@@ -63,7 +63,7 @@ func clickAutoButton(timeLeft4KillMonster int) {
 
 	//点手动->自动
 	//使用这个的目的是避免鼠标移动太快，导致失效
-	mouse.Move2PositionSlow(globalAutoButtonPos, "点自动打怪")
+	mouse.Move2Position(globalAutoButtonPos, "点自动打怪")
 	mouse.SignalLeftClick()
 
 	log.Info(
@@ -78,6 +78,7 @@ func clickAutoButton(timeLeft4KillMonster int) {
 func closeBigMap() {
 	mouse.Move2Position(globalSmallMapPos, "点小地图--关闭大地图")
 	mouse.SignalLeftClick()
+	robotgo.Sleep(2) //停止2秒，避免误差点击
 }
 
 func openBigMap() {

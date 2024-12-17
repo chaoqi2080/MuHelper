@@ -73,7 +73,6 @@ func clickAutoButton(timeLeft4KillMonster int) {
 	robotgo.Sleep(timeLeft4KillMonster)
 }
 
-// closeBigMap and openBigMap 使用同样的指令
 // 理由是点一次就是打开大地图，再点一次就是关闭，如此循环
 func closeBigMap() {
 	mouse.Move2Position(globalSmallMapPos, "点小地图--关闭大地图")

@@ -15,21 +15,6 @@ var globalLeftBlankPos = []int{124, 140}
 // 自动按钮位置
 var globalAutoButtonPos = []int{926, 273}
 
-func DoAutoKillMonster(recycleTime int, killMonsterFn func()) {
-	robotgo.Sleep(3)
-	i := 0
-	for {
-		i++
-
-		if i >= recycleTime {
-			autoRecycle()
-			i = 0
-		}
-
-		killMonsterFn()
-	}
-}
-
 // // 黄金之间移动的时间(秒)
 func killMonster(goldenMonsterPos []int, timeLeft4KillMonster int, moveTimeBetweenMonster int) {
 	if len(goldenMonsterPos) != 2 {
@@ -77,7 +62,7 @@ func clickAutoButton(timeLeft4KillMonster int) {
 func closeBigMap() {
 	mouse.Move2Position(globalSmallMapPos, "点小地图--关闭大地图")
 	mouse.SignalLeftClick()
-	robotgo.Sleep(2) //停止2秒，避免误差点击
+	robotgo.Sleep(1) //停止1秒，避免误差点击
 }
 
 func openBigMap() {

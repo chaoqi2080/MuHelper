@@ -13,7 +13,7 @@ func main() {
 	//校准地图点位置
 	//GetFramePos()
 	//自动打怪。
-	DoAutoKillMonster()
+	DoAutoKillMonster(3, killAnNingGolden12)
 }
 
 func GetFramePos() {

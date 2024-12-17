@@ -7,35 +7,32 @@ import (
 )
 
 // 小地图的坐标。
-var globalSmallMapPos = []int{964, 138}
+var globalSmallMapPos = []int{931, 119}
 
 // 靠左的空白点对应的坐标。
-var globalLeftBlankPos = []int{310, 243}
+var globalLeftBlankPos = []int{124, 140}
 
 // 自动按钮位置
-var globalAutoButtonPos = []int{1013, 305}
+var globalAutoButtonPos = []int{926, 273}
 
-func DoAutoKillMonster() {
+func DoAutoKillMonster(recycleTime int, killMonsterFn func()) {
 	robotgo.Sleep(3)
 	i := 0
 	for {
 		i++
 
-		if i >= 3 {
+		if i >= recycleTime {
 			autoRecycle()
 			i = 0
 		}
 
-		//bingShuang1Golden()
-		killAnNingGolden3()
-
-		//killLost4Map()
-
+		killMonsterFn()
 	}
 }
 
-func killMonster(goldenMonsterPos []int, moveTimeBetweenMonster int) {
-	if len(goldenMonsterPos) != 3 {
+// // 黄金之间移动的时间(秒)
+func killMonster(goldenMonsterPos []int, timeLeft4KillMonster int, moveTimeBetweenMonster int) {
+	if len(goldenMonsterPos) != 2 {
 		log.Error("传入的黄金怪坐标数据有问题")
 		return
 	}
@@ -47,11 +44,11 @@ func killMonster(goldenMonsterPos []int, moveTimeBetweenMonster int) {
 	clickGoldenMonsterPosInBigMap(goldenMonsterPos, moveTimeBetweenMonster)
 
 	//开启自动刷怪
-	clickAutoButton(goldenMonsterPos[2])
+	clickAutoButton(timeLeft4KillMonster)
 }
 
 func clickGoldenMonsterPosInBigMap(goldenMonsterPos []int, moveTimeBetweenMonster int) {
-	mouse.Move2Position([]int{goldenMonsterPos[0], goldenMonsterPos[1]})
+	mouse.Move2Position([]int{goldenMonsterPos[0], goldenMonsterPos[1]}, "在大地图中点黄金怪坐标")
 	mouse.DoubleLeftClick()
 	//等待玩家移动到对应的位置
 	log.Info(
@@ -65,7 +62,8 @@ func clickAutoButton(timeLeft4KillMonster int) {
 	closeBigMap()
 
 	//点手动->自动
-	mouse.Move2Position(globalAutoButtonPos)
+	//使用这个的目的是避免鼠标移动太快，导致失效
+	mouse.Move2PositionSlow(globalAutoButtonPos, "点自动打怪")
 	mouse.SignalLeftClick()
 
 	log.Info(
@@ -78,11 +76,11 @@ func clickAutoButton(timeLeft4KillMonster int) {
 // closeBigMap and openBigMap 使用同样的指令
 // 理由是点一次就是打开大地图，再点一次就是关闭，如此循环
 func closeBigMap() {
-	mouse.Move2Position(globalSmallMapPos)
+	mouse.Move2Position(globalSmallMapPos, "点小地图--关闭大地图")
 	mouse.SignalLeftClick()
 }
 
 func openBigMap() {
-	mouse.Move2Position(globalSmallMapPos)
+	mouse.Move2Position(globalSmallMapPos, "点小地图--打开大地图")
 	mouse.SignalLeftClick()
 }

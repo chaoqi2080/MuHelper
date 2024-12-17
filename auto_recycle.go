@@ -20,10 +20,10 @@ const (
 
 // 回收对应的几个坐标点。
 var recyclePos = [][]int{
-	{1014, 259}, //背包
-	{984, 537},  //整理
-	{926, 540},  //回收
-	{896, 515},  //确认回收
+	{927, 229}, //背包
+	{901, 480}, //整理
+	{842, 481}, //回收
+	{820, 463}, //确认回收
 }
 
 func autoRecycle() {
@@ -33,32 +33,22 @@ func autoRecycle() {
 	}
 
 	//点背包
-	log.Info("1--点背包")
-	mouse.Move2Position(recyclePos[BeiBao])
-	//robotgo.Sleep(1)
+	mouse.Move2Position(recyclePos[BeiBao], "回收--点背包")
 	mouse.SignalLeftClick()
 
 	//点整理
-	log.Info("2--点整理")
-	mouse.Move2Position(recyclePos[ZhengLi])
-	//robotgo.Sleep(1)
+	mouse.Move2Position(recyclePos[ZhengLi], "回收--点整理")
 	mouse.SignalLeftClick()
 
 	//点回收
-	log.Info("3--点回收")
-	mouse.Move2Position(recyclePos[HuiShou])
-	//robotgo.Sleep(1)
+	mouse.Move2Position(recyclePos[HuiShou], "回收--点回收")
 	mouse.SignalLeftClick()
 
 	//点确认回收
-	log.Info("4--点确认回收")
-	mouse.Move2Position(recyclePos[HuiShouQueRen])
-	//robotgo.Sleep(1)
+	mouse.Move2Position(recyclePos[HuiShouQueRen], "回收--点确认回收")
 	mouse.SignalLeftClick()
 
 	//点关闭按钮
-	log.Info("5--点关闭按钮")
-	mouse.Move2Position(globalLeftBlankPos)
-	//robotgo.Sleep(1)
+	mouse.Move2Position(globalLeftBlankPos, "回收--点关闭按钮")
 	mouse.DoubleLeftClick()
 }

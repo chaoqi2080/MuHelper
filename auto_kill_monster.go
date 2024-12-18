@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/go-vgo/robotgo"
 	"muHelper/util/log"
 	"muHelper/util/mouse"
@@ -33,13 +34,16 @@ func killMonster(goldenMonsterPos []int, timeLeft4KillMonster int, moveTimeBetwe
 }
 
 func clickGoldenMonsterPosInBigMap(goldenMonsterPos []int, moveTimeBetweenMonster int) {
-	mouse.Move2Position([]int{goldenMonsterPos[0], goldenMonsterPos[1]}, "在大地图中点黄金怪坐标")
+	mouse.Move2Position(
+		[]int{goldenMonsterPos[0], goldenMonsterPos[1]},
+		fmt.Sprintf("在大地图中点黄金怪坐标, 耗时 = %v", moveTimeBetweenMonster),
+	)
 	mouse.DoubleLeftClick()
 	//等待玩家移动到对应的位置
-	log.Info(
-		"玩家需要移动到 = [%v,%v], 耗时 = %v 秒",
-		goldenMonsterPos[0], goldenMonsterPos[1], moveTimeBetweenMonster,
-	)
+	//log.Info(
+	//	"玩家需要移动到 = [%v,%v], 耗时 = %v 秒",
+	//	goldenMonsterPos[0], goldenMonsterPos[1], moveTimeBetweenMonster,
+	//)
 	robotgo.Sleep(moveTimeBetweenMonster)
 }
 

@@ -36,6 +36,7 @@ func DoAutoKillMonster() {
 		if bNeedKillBoss {
 			//重置一下时间
 			killBossTime = time.Now().Unix()
+			log.Warn("开始击杀 boss")
 			killAnNingBoss9()
 		}
 		killAnNingGolden9()

@@ -22,7 +22,7 @@ func DoAutoKillMonster() {
 	killMonsterCount := 0
 
 	killBossTime := time.Now().Unix()
-	internalTime := int64(40 * 60) // 40 分钟
+	internalTime := int64(45 * 60) // 40 分钟
 	for {
 		killMonsterCount++
 

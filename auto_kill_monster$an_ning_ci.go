@@ -17,5 +17,5 @@ func killAnNingGolden12() {
 }
 
 func killAnNingBoss9() {
-	killMonster([]int{421, 299}, 180, 7)
+	killMonster([]int{421, 299}, 185, 7)
 }

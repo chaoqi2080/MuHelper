@@ -7,8 +7,8 @@ func killAnNingGolden3() {
 }
 
 func killAnNingGolden9() {
-	killMonster([]int{436, 285}, 100, 11)
-	killMonster([]int{428, 316}, 100, 11)
+	killMonster([]int{476, 313}, 97, 11)
+	killMonster([]int{465, 345}, 99, 11)
 }
 
 func killAnNingGolden12() {
@@ -17,5 +17,5 @@ func killAnNingGolden12() {
 }
 
 func killAnNingBoss9() {
-	killMonster([]int{421, 299}, 185, 7)
+	killMonster([]int{458, 330}, 182, 7)
 }

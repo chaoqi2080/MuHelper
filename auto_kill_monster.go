@@ -14,7 +14,7 @@ var globalSmallMapPos = []int{931, 119}
 var globalLeftBlankPos = []int{124, 140}
 
 // 自动按钮位置
-var globalAutoButtonPos = []int{926, 273}
+var globalAutoButtonPos = []int{1016, 295}
 
 // // 黄金之间移动的时间(秒)
 func killMonster(goldenMonsterPos []int, timeLeft4KillMonster int, moveTimeBetweenMonster int) {
@@ -39,6 +39,8 @@ func clickGoldenMonsterPosInBigMap(goldenMonsterPos []int, moveTimeBetweenMonste
 		fmt.Sprintf("在大地图中点黄金怪坐标, 耗时 = %v", moveTimeBetweenMonster),
 	)
 	mouse.DoubleLeftClick()
+
+	closeBigMap()
 	//等待玩家移动到对应的位置
 	//log.Info(
 	//	"玩家需要移动到 = [%v,%v], 耗时 = %v 秒",
@@ -48,8 +50,6 @@ func clickGoldenMonsterPosInBigMap(goldenMonsterPos []int, moveTimeBetweenMonste
 }
 
 func clickAutoButton(timeLeft4KillMonster int) {
-	closeBigMap()
-
 	//点手动->自动
 	//使用这个的目的是避免鼠标移动太快，导致失效
 	mouse.Move2Position(globalAutoButtonPos, "点自动打怪")
@@ -66,7 +66,7 @@ func clickAutoButton(timeLeft4KillMonster int) {
 func closeBigMap() {
 	mouse.Move2Position(globalSmallMapPos, "点小地图--关闭大地图")
 	mouse.SignalLeftClick()
-	robotgo.Sleep(1) //停止1秒，避免误差点击
+	// robotgo.Sleep(1) //停止1秒，避免误差点击
 }
 
 func openBigMap() {

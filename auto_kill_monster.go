@@ -7,15 +7,6 @@ import (
 	"muHelper/util/mouse"
 )
 
-// 小地图的坐标。
-var globalSmallMapPos = []int{931, 119}
-
-// 靠左的空白点对应的坐标。
-var globalLeftBlankPos = []int{124, 140}
-
-// 自动按钮位置
-var globalAutoButtonPos = []int{1016, 295}
-
 // // 黄金之间移动的时间(秒)
 func killMonster(goldenMonsterPos []int, timeLeft4KillMonster int, moveTimeBetweenMonster int) {
 	if len(goldenMonsterPos) != 2 {
@@ -52,7 +43,10 @@ func clickGoldenMonsterPosInBigMap(goldenMonsterPos []int, moveTimeBetweenMonste
 func clickAutoButton(timeLeft4KillMonster int) {
 	//点手动->自动
 	//使用这个的目的是避免鼠标移动太快，导致失效
-	mouse.Move2Position(globalAutoButtonPos, "点自动打怪")
+	mouse.Move2Position(
+		[]int{gConfigPos.Auto[0], gConfigPos.Auto[1]},
+		"点自动打怪",
+	)
 	mouse.SignalLeftClick()
 
 	log.Info(
@@ -64,12 +58,17 @@ func clickAutoButton(timeLeft4KillMonster int) {
 
 // 理由是点一次就是打开大地图，再点一次就是关闭，如此循环
 func closeBigMap() {
-	mouse.Move2Position(globalSmallMapPos, "点小地图--关闭大地图")
+	mouse.Move2Position(
+		[]int{gConfigPos.PosBackPack[0], gConfigPos.PosBackPack[1] - 150},
+		"点小地图--关闭大地图",
+	)
 	mouse.SignalLeftClick()
-	// robotgo.Sleep(1) //停止1秒，避免误差点击
 }
 
 func openBigMap() {
-	mouse.Move2Position(globalSmallMapPos, "点小地图--打开大地图")
+	mouse.Move2Position(
+		[]int{gConfigPos.PosBackPack[0], gConfigPos.PosBackPack[1] - 150},
+		"点小地图--打开大地图",
+	)
 	mouse.SignalLeftClick()
 }

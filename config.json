@@ -1,0 +1,14 @@
+{
+  "is_get_pos": true,
+  "auto" : [1016, 295],
+  "back_pack": [1014, 257],
+  "zheng_li" : [982, 538],
+  "hui_shou" : [924, 537],
+  "hui_shou_2" : [894, 516],
+  "golden_1" : [476, 313, 92, 11],
+  "golden_2" : [465, 345, 92, 11],
+  "is_kill_boss" : true,
+  "boss" : [455, 343, 178, 7],
+  "boss_move2_golden_time" : 4,
+  "boss_refresh_time" : 45
+}

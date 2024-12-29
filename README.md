@@ -17,3 +17,10 @@
     3. 记录角色打死对应位置黄金怪的耗时。
     4. 把坐标、移动耗时、打怪耗时填入对应的位置。
     5. 运行。
+
+
+## 编译 go 运行到 windows 下
+sudo apt-get install mingw-w64
+
+GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ go build -o main.exe
+

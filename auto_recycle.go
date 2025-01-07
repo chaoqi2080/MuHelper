@@ -12,32 +12,30 @@ import (
 // 5. 点关闭按钮
 
 func autoRecycle() {
-	backpackX := gConfigPos.PosBackPack[0]
-	backpackY := gConfigPos.PosBackPack[1]
-	//点背包
+	//点背包ΩΩ
 	mouse.Move2Position(
-		[]int{backpackX, backpackY},
+		[]int{gConfigPos.PosBackPack[0], gConfigPos.PosBackPack[1]},
 		"回收--点背包",
 	)
 	mouse.SignalLeftClick()
 
 	//点整理
 	mouse.Move2Position(
-		[]int{backpackX - 32, backpackY + 380},
+		[]int{gConfigPos.ZhengLi[0], gConfigPos.ZhengLi[1]},
 		"回收--点整理",
 	)
 	mouse.SignalLeftClick()
 
 	//点回收
 	mouse.Move2Position(
-		[]int{backpackX - 90, backpackY + 380},
+		[]int{gConfigPos.HuiShou[0], gConfigPos.HuiShou[1]},
 		"回收--点回收",
 	)
 	mouse.SignalLeftClick()
 
 	//点确认回收
 	mouse.Move2Position(
-		[]int{backpackX - 120, backpackY + 260},
+		[]int{gConfigPos.HuiShou2[0], gConfigPos.HuiShou2[1]},
 		"回收--点确认回收",
 	)
 	mouse.SignalLeftClick()

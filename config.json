@@ -1,14 +1,18 @@
 {
-  "is_get_pos": true,
-  "auto" : [1016, 295],
-  "back_pack": [1014, 257],
-  "zheng_li" : [982, 538],
-  "hui_shou" : [924, 537],
-  "hui_shou_2" : [894, 516],
-  "golden_1" : [476, 313, 92, 11],
-  "golden_2" : [465, 345, 92, 11],
+  "is_get_pos": false,
+  "auto" : [1213, 355],
+  "back_pack": [1213, 300],
+  "zheng_li" : [1181, 680],
+  "hui_shou" : [1123, 680],
+  "hui_shou_2" : [1093, 560],
+  "golden" : [
+    [564, 381, 79, 10],
+    [552, 427, 79, 10]
+  ],
   "is_kill_boss" : true,
-  "boss" : [455, 343, 178, 7],
-  "boss_move2_golden_time" : 4,
-  "boss_refresh_time" : 45
+  "boss" : [
+    [455, 343, 178, 4],
+    [552, 427, 79, 4]
+  ],
+  "boss_refresh_time" : 42
 }

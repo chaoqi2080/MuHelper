@@ -16,6 +16,16 @@ func main() {
 		return
 	}
 
+	for i := 0; i < len(gConfigPos.Golden); i++ {
+		log.Info("i = %v, => %v", i, gConfigPos.Golden[i])
+
+		for j := 0; j < len(gConfigPos.Golden[i]); j++ {
+			log.Info("j = %v, => %v", j, gConfigPos.Golden[i][j])
+		}
+	}
+
+	return
+
 	robotgo.Sleep(2)
 
 	if gConfigPos.IsGetPos {
@@ -37,7 +47,7 @@ func DoAutoKillMonster() {
 	for {
 		killMonsterCount++
 
-		if killMonsterCount >= 3 {
+		if killMonsterCount >= 2 {
 			autoRecycle()
 			killMonsterCount = 0
 		}
@@ -45,39 +55,32 @@ func DoAutoKillMonster() {
 		// 打一次 boss
 		bNeedKillBoss := (time.Now().Unix() - killBossTime) > internalTime
 		if bNeedKillBoss {
-			//重置一下时间
-			killBossTime = time.Now().Unix()
-			log.Warn("开始击杀 boss")
-			killMonster(
-				[]int{gConfigPos.Boss[0], gConfigPos.Boss[1]},
-				gConfigPos.Boss[2],
-				gConfigPos.Boss[3],
-			)
-			killMonster(
-				[]int{
-					gConfigPos.Golden2[0],
-					gConfigPos.Golden2[1],
-				},
-				gConfigPos.Golden2[2],
-				gConfigPos.BossMove2GoldenTime,
-			)
-		} else {
-			//杀黄金怪
-			killMonster(
-				[]int{
-					gConfigPos.Golden1[0],
-					gConfigPos.Golden1[1],
-				},
-				gConfigPos.Golden1[2],
-				gConfigPos.Golden1[3],
-			)
+			for i := 0; i < len(gConfigPos.Boss); i++ {
+				killMonster(
+					[]int{
+						gConfigPos.Boss[i][0], gConfigPos.Boss[i][1],
+					},
+					gConfigPos.Boss[i][2],
+					gConfigPos.Boss[i][3],
+				)
+
+				if i == 0 {
+					//重置一下时间
+					killBossTime = time.Now().Unix()
+				}
+			}
+
+			continue
+		}
+
+		//杀黄金怪
+		for i := 0; i < len(gConfigPos.Golden); i++ {
 			killMonster(
 				[]int{
-					gConfigPos.Golden2[0],
-					gConfigPos.Golden2[1],
+					gConfigPos.Golden[i][0], gConfigPos.Golden[i][1],
 				},
-				gConfigPos.Golden2[2],
-				gConfigPos.Golden2[3],
+				gConfigPos.Golden[i][2],
+				gConfigPos.Golden[i][3],
 			)
 		}
 	}

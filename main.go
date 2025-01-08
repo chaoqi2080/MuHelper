@@ -16,16 +16,6 @@ func main() {
 		return
 	}
 
-	for i := 0; i < len(gConfigPos.Golden); i++ {
-		log.Info("i = %v, => %v", i, gConfigPos.Golden[i])
-
-		for j := 0; j < len(gConfigPos.Golden[i]); j++ {
-			log.Info("j = %v, => %v", j, gConfigPos.Golden[i][j])
-		}
-	}
-
-	return
-
 	robotgo.Sleep(2)
 
 	if gConfigPos.IsGetPos {

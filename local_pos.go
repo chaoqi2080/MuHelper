@@ -8,16 +8,12 @@ import (
 )
 
 type LocalPos struct {
-	IsGetPos        bool    `json:"is_get_pos"`
-	Auto            []int   `json:"auto"`
-	PosBackPack     []int   `json:"back_pack"`
-	ZhengLi         []int   `json:"zheng_li"`
-	HuiShou         []int   `json:"hui_shou"`
-	HuiShou2        []int   `json:"hui_shou_2"`
-	Golden          [][]int `json:"golden"`
-	IsKillBoss      bool    `json:"is_kill_boss"`
-	Boss            [][]int `json:"boss"`
-	BossRefreshTime int     `json:"boss_refresh_time"`
+	IsGetPos   bool    `json:"is_get_pos"`
+	Recycle    [][]int `json:"recycle"`
+	Auto       []int   `json:"auto"`
+	Golden     [][]int `json:"golden"`
+	IsKillBoss bool    `json:"is_kill_boss"`
+	Boss       []int   `json:"boss"`
 }
 
 func ReadConfigFromFile(fileName string) bool {

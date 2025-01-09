@@ -33,34 +33,20 @@ func DoAutoKillMonster() {
 	killMonsterCount := 0
 
 	killBossTime := time.Now().Unix()
-	internalTime := int64(gConfigPos.BossRefreshTime * 60)
+	internalTime := int64(gConfigPos.Boss[4] * 60)
 	for {
-		killMonsterCount++
-
-		if killMonsterCount >= 2 {
-			autoRecycle()
-			killMonsterCount = 0
-		}
-
 		// 打一次 boss
-		bNeedKillBoss := (time.Now().Unix() - killBossTime) > internalTime
-		if bNeedKillBoss {
-			for i := 0; i < len(gConfigPos.Boss); i++ {
-				killMonster(
-					[]int{
-						gConfigPos.Boss[i][0], gConfigPos.Boss[i][1],
-					},
-					gConfigPos.Boss[i][2],
-					gConfigPos.Boss[i][3],
-				)
+		if (time.Now().Unix() - killBossTime) > internalTime {
+			killMonster(
+				[]int{
+					gConfigPos.Boss[0], gConfigPos.Boss[1],
+				},
+				gConfigPos.Boss[2],
+				gConfigPos.Boss[3],
+			)
 
-				if i == 0 {
-					//重置一下时间
-					killBossTime = time.Now().Unix()
-				}
-			}
-
-			continue
+			//重置一下时间
+			killBossTime = time.Now().Unix()
 		}
 
 		//杀黄金怪
@@ -72,6 +58,13 @@ func DoAutoKillMonster() {
 				gConfigPos.Golden[i][2],
 				gConfigPos.Golden[i][3],
 			)
+		}
+
+		killMonsterCount++
+
+		if killMonsterCount >= 2 {
+			autoRecycle()
+			killMonsterCount = 0
 		}
 	}
 }

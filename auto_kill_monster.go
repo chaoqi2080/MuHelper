@@ -58,17 +58,17 @@ func clickAutoButton(timeLeft4KillMonster int) {
 
 // 理由是点一次就是打开大地图，再点一次就是关闭，如此循环
 func closeBigMap() {
-	mouse.Move2Position(
-		[]int{gConfigPos.PosBackPack[0], gConfigPos.PosBackPack[1] - 150},
-		"点小地图--关闭大地图",
-	)
-	mouse.SignalLeftClick()
+	opMap("点小地图--关闭大地图")
 }
 
 func openBigMap() {
+	opMap("点小地图--打开大地图")
+}
+
+func opMap(str string) {
 	mouse.Move2Position(
-		[]int{gConfigPos.PosBackPack[0], gConfigPos.PosBackPack[1] - 150},
-		"点小地图--打开大地图",
+		[]int{gConfigPos.Recycle[0][0], gConfigPos.Recycle[0][1] - 150},
+		str,
 	)
 	mouse.SignalLeftClick()
 }

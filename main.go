@@ -57,8 +57,8 @@ func DoAutoKillMonster() {
 				killBossTime = time.Now().Unix()
 			}
 
-			if rand.Int31n(100) >= 50 {
-				//打的过程中50的概率回收
+			if rand.Int31n(100) >= 80 {
+				//回收卓越
 				autoRecycle()
 			}
 		}

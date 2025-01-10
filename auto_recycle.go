@@ -23,6 +23,7 @@ func autoRecycle() {
 				gConfigPos.Recycle[i][0], gConfigPos.Recycle[i][1],
 			},
 			fmt.Sprintf("回收--%v", recycleStrArray[i]),
+			false,
 		)
 		mouse.SignalLeftClick()
 	}
@@ -31,6 +32,7 @@ func autoRecycle() {
 	mouse.Move2Position(
 		[]int{gConfigPos.Recycle[0][0] - 900, gConfigPos.Recycle[0][1]},
 		"回收--点关闭按钮",
+		false,
 	)
 	mouse.DoubleLeftClick()
 }

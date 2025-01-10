@@ -10,7 +10,7 @@ import (
 // // 黄金之间移动的时间(秒)
 func killMonster(goldenMonsterPos []int, timeLeft4KillMonster int, moveTimeBetweenMonster int) {
 	if len(goldenMonsterPos) != 2 {
-		log.Error("传入的黄金怪坐标数据有问题")
+		log.Error("传入的怪坐标数据有问题")
 		return
 	}
 
@@ -27,7 +27,8 @@ func killMonster(goldenMonsterPos []int, timeLeft4KillMonster int, moveTimeBetwe
 func clickGoldenMonsterPosInBigMap(goldenMonsterPos []int, moveTimeBetweenMonster int) {
 	mouse.Move2Position(
 		[]int{goldenMonsterPos[0], goldenMonsterPos[1]},
-		fmt.Sprintf("在大地图中点黄金怪坐标, 耗时 = %v", moveTimeBetweenMonster),
+		fmt.Sprintf("在大地图中点怪坐标, 耗时 = %v", moveTimeBetweenMonster),
+		true,
 	)
 	mouse.DoubleLeftClick()
 
@@ -46,6 +47,7 @@ func clickAutoButton(timeLeft4KillMonster int) {
 	mouse.Move2Position(
 		[]int{gConfigPos.Auto[0], gConfigPos.Auto[1]},
 		"点自动打怪",
+		true,
 	)
 	mouse.SignalLeftClick()
 
@@ -70,6 +72,7 @@ func opMap(str string) {
 	mouse.Move2Position(
 		[]int{gConfigPos.Recycle[0][0], gConfigPos.Recycle[0][1] - 150},
 		str,
+		false,
 	)
 	mouse.SignalLeftClick()
 }

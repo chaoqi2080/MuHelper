@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/go-vgo/robotgo"
+	"math/rand"
 	"muHelper/util/log"
 	"time"
 )
@@ -16,20 +17,19 @@ func main() {
 		return
 	}
 
-	robotgo.Sleep(2)
+	robotgo.Sleep(3)
 
 	if gConfigPos.IsGetPos {
 		//校准地图点位置
 		GetFramePos()
 		return
-	} else {
-		//自动打怪。
-		DoAutoKillMonster()
 	}
+
+	//自动打怪。
+	DoAutoKillMonster()
 }
 
 func DoAutoKillMonster() {
-	robotgo.Sleep(3)
 
 	killBossTime := time.Now().Unix()
 	internalTime := int64(gConfigPos.Boss[4] * 60)
@@ -55,6 +55,11 @@ func DoAutoKillMonster() {
 
 				//重置一下时间
 				killBossTime = time.Now().Unix()
+			}
+
+			if rand.Int31n(100) >= 50 {
+				//打的过程中50的概率回收
+				autoRecycle()
 			}
 		}
 	}

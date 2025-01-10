@@ -30,7 +30,6 @@ func main() {
 
 func DoAutoKillMonster() {
 	robotgo.Sleep(3)
-	killMonsterCount := 0
 
 	killBossTime := time.Now().Unix()
 	internalTime := int64(gConfigPos.Boss[4] * 60)
@@ -57,13 +56,6 @@ func DoAutoKillMonster() {
 				//重置一下时间
 				killBossTime = time.Now().Unix()
 			}
-		}
-
-		killMonsterCount++
-
-		if killMonsterCount >= 2 {
-			autoRecycle()
-			killMonsterCount = 0
 		}
 	}
 }

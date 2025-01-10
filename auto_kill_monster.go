@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/go-vgo/robotgo"
+	"math/rand"
 	"muHelper/util/log"
 	"muHelper/util/mouse"
 )
@@ -53,6 +54,11 @@ func clickAutoButton(timeLeft4KillMonster int) {
 		"玩家开始自动杀怪, 预计耗时 = %v",
 		timeLeft4KillMonster,
 	)
+
+	if rand.Int31n(100) >= 50 {
+		//打的过程中50的概率回收
+		autoRecycle()
+	}
 	robotgo.Sleep(timeLeft4KillMonster)
 }
 
